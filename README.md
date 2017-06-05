@@ -16,11 +16,15 @@ Tested on Ubuntu 16 and Centos 7 servers.
 Java 1.8
 
 Dependencies:
+
 Hadoop-BAM 7.4.0 +
+
 Samtools HtsJDK 2.5.0 +
+
 Java Bindings (JNI) for bwa: jbwa 1.0.0 +
 
 Scala 2.10 +
+
 Scala parsing library Scallop 2.1.2 +
 
 ------------------------------------------------------------------------------------------
@@ -79,14 +83,21 @@ Running the example pipeline
 
 ### Download NGS sequence files and load to HDFS
     wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00313/sequence_read/ERR016234_1.filt.fastq.gz
+    
     wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00313/sequence_read/ERR016234_2.filt.fastq.gz
+    
     hdfs dfs -mkdir /data/input/example
+    
     hdfs dfs -mkdir /data/output
+    
     hdfs dfs -put ERR016234_1.filt.fastq.gz /data/input/example
+    
     hdfs dfs -put ERR016234_2.filt.fastq.gz /data/input/example
 
 ### Run the pipeline
-Check that memory allocations fit your system and that directories, databases etc. exists and user has proper permissions.
+Check pipeline_cluster.sh that memory allocations fit your system and that directories, databases etc. exists and user has proper permissions.
     ./pipeline_cluster.sh /data/input /data/output example
+    
     or
+    
     ./pipeline_local.sh /data/input /data/output example
