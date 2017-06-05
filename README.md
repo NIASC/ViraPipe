@@ -18,22 +18,19 @@ Java 1.8
 Dependencies:
 
 Hadoop-BAM 7.4.0 +
-
 Samtools HtsJDK 2.5.0 +
-
 Java Bindings (JNI) for bwa: jbwa 1.0.0 +
-
 Scala 2.10 +
-
 Scala parsing library Scallop 2.1.2 +
 
 ------------------------------------------------------------------------------------------
 Installation
 ------------------------------------------------------------------------------------------
 
-git clone https://github.com/ViraSeq
-cd ViraSeq
-mvn install package
+### 
+    git clone https://github.com/ViraSeq
+    cd ViraSeq
+    mvn install package
 
 ### jbwa
     git clone https://github.com/lindenb/jbwa
@@ -47,9 +44,10 @@ mvn install package
     git clone https://github.com/voutcn/megahit
     cd megahit
     make
-    create symbolic link
-        ln -s {path to megahit}/megahit /usr/local/bin/megahit
-    or add megahit to PATH
+create symbolic link
+
+    ln -s {path to megahit}/megahit /usr/local/bin/megahit
+or add megahit to PATH encironment variable
 
 ### Download and install BLAST and HMMER software on every worker node (requires gcc compiler)
 
@@ -60,14 +58,14 @@ mvn install package
 
 [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
 
-    wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.6.0+-x64-linux.tar.gz
-    
+    wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.6.0+-x64-linux.tar.gz    
     Extract and make
 
 ### Download and extract wanted BLAST and HMMER databases under the same path on every worker node
 eg. vFam database for hmmsearch
 
     wget http://derisilab.ucsf.edu/software/vFam/vFam-B_2014.hmm
+
 eg. BLAST nt and human database files
 
     for i in {0..9}; do wget ftp://ftp.ncbi.nlm.nih.gov/blast/db/env_nt.0$i.tar.gz ; done
@@ -88,23 +86,16 @@ Running the example pipeline
     wget -r ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/*
 
 ### Download NGS sequence files and load to HDFS
-    wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00313/sequence_read/ERR016234_1.filt.fastq.gz
-    
-    wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00313/sequence_read/ERR016234_2.filt.fastq.gz
-    
-    hdfs dfs -mkdir /data/input/example
-    
-    hdfs dfs -mkdir /data/output
-    
+    wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00313/sequence_read/ERR016234_1.filt.fastq.gz    
+    wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00313/sequence_read/ERR016234_2.filt.fastq.gz    
+    hdfs dfs -mkdir /data/input/example    
+    hdfs dfs -mkdir /data/output    
     hdfs dfs -put ERR016234_1.filt.fastq.gz /data/input/example
-    
     hdfs dfs -put ERR016234_2.filt.fastq.gz /data/input/example
 
 ### Run the pipeline
-Check pipeline_cluster.sh that memory allocations fit your system and that directories, databases etc. exists and user has proper permissions.
+Check pipeline____.sh that memory allocations fit your system and that directories, databases etc. exists and user has proper permissions.
 
-    ./pipeline_cluster.sh /data/input /data/output example
-    
-    or
-    
+    ./pipeline_cluster.sh /data/input /data/output example    
+    or    
     ./pipeline_local.sh /data/input /data/output example
