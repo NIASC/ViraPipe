@@ -74,10 +74,10 @@ Copy DBs to every node with scp
 Running the example pipeline
 ------------------------------------------------------------------------------------------
 
-###Download human reference genome index on every node under the same path e.g. /index
+### Download human reference genome index on every node under the same path e.g. /index
     wget -r ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/*
 
-###Download NGS sequence files and load to HDFS
+### Download NGS sequence files and load to HDFS
     wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00313/sequence_read/ERR016234_1.filt.fastq.gz
     wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00313/sequence_read/ERR016234_2.filt.fastq.gz
     hdfs dfs -mkdir /data/input/example
@@ -85,7 +85,7 @@ Running the example pipeline
     hdfs dfs -put ERR016234_1.filt.fastq.gz /data/input/example
     hdfs dfs -put ERR016234_2.filt.fastq.gz /data/input/example
 
-###Run the pipeline
+### Run the pipeline
 Check that memory allocations fit your system and that directories, databases etc. exists and user has proper permissions.
     ./pipeline_cluster.sh /data/input /data/output example
     or
