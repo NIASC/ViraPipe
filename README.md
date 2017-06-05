@@ -12,7 +12,7 @@ Requirements
 ------------------------------------------------------------------------------------------
 
 - Apache Spark 2
-- Hadoop, YARN and HDFS filesystem.
+- Apache Hadoop, YARN and HDFS filesystem.
 - Java 1.8
 - Maven 2
 
