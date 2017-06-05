@@ -28,7 +28,7 @@ Installation
 ------------------------------------------------------------------------------------------
 
 ### 
-    git clone https://github.com/ViraSeq
+    git clone https://github.com/NGSeq/ViraPipe
     cd ViraSeq
     mvn install package
 
@@ -37,7 +37,8 @@ Installation
     cd jbwa
     make
 
-    Copy libbwajni native library to {$HADOOP_HOME}/lib/native directory on every worker node e.g. with scp:
+Copy libbwajni native library to {$HADOOP_HOME}/lib/native directory on every worker node e.g. with scp:
+
     scp src/main/native/libbwajni.so username@hostname:/{$HADOOP_HOME}/lib/native
 
 ### Download and install MegaHit assembler on every worker node (requires gcc compiler)
