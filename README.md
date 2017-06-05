@@ -54,23 +54,29 @@ mvn install package
 ### Download and install BLAST and HMMER software on every worker node (requires gcc compiler)
 
 [HMMER](http://www.hmmer.org/download.html)
+
     wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2-linux-intel-x86_64.tar.gz
     Extract and make
 
 [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
+
     wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.6.0+-x64-linux.tar.gz
+    
     Extract and make
 
 ### Download and extract wanted BLAST and HMMER databases under the same path on every worker node
 eg. vFam database for hmmsearch
+
     wget http://derisilab.ucsf.edu/software/vFam/vFam-B_2014.hmm
 eg. BLAST nt and human database files
+
     for i in {0..9}; do wget ftp://ftp.ncbi.nlm.nih.gov/blast/db/env_nt.0$i.tar.gz ; done
     for i in {10..23}; do wget ftp://ftp.ncbi.nlm.nih.gov/blast/db/env_nt.$i.tar.gz ; done
     wget ftp://ftp.ncbi.nlm.nih.gov/blast/db/est_human.00.tar.gz
     wget ftp://ftp.ncbi.nlm.nih.gov/blast/db/est_human.01.tar.gz
     cat *.gz | tar -xzvf - -i
 Copy DBs to every node with scp
+
     scp vFam-B_2014.hmm username@hostname:/database/hmmer
     scp *.n* username@hostname:/database/blast
 
@@ -96,6 +102,7 @@ Running the example pipeline
 
 ### Run the pipeline
 Check pipeline_cluster.sh that memory allocations fit your system and that directories, databases etc. exists and user has proper permissions.
+
     ./pipeline_cluster.sh /data/input /data/output example
     
     or
