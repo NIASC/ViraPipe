@@ -17,11 +17,11 @@ Java 1.8
 
 Dependencies:
 
-Hadoop-BAM 7.4.0 +
-Samtools HtsJDK 2.5.0 +
-Java Bindings (JNI) for bwa: jbwa 1.0.0 +
-Scala 2.10 +
-Scala parsing library Scallop 2.1.2 +
+- Hadoop-BAM 7.4.0 +
+- Samtools HtsJDK 2.5.0 +
+- Java Bindings (JNI) for bwa: jbwa 1.0.0 +
+- Scala 2.10 +
+- Scala parsing library Scallop 2.1.2 +
 
 ------------------------------------------------------------------------------------------
 Installation
