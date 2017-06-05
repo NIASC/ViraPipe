@@ -11,11 +11,14 @@ FASTQ, FASTA, SAM/BAM and Apache Parquet formats are supported as well as BLAST 
 Requirements
 ------------------------------------------------------------------------------------------
 
-Apache Spark 2 installed with Hadoop, YARN and HDFS filesystem.
-Tested on Ubuntu 16 and Centos 7 servers.
-Java 1.8
+- Apache Spark 2
+- Hadoop, YARN and HDFS filesystem.
+- Java 1.8
+- Maven 2
 
-Dependencies:
+Tested on Ubuntu 16 and Centos 7 servers.
+
+Dependencies (included in pom.xml):
 
 - Hadoop-BAM 7.4.0 +
 - Samtools HtsJDK 2.5.0 +
